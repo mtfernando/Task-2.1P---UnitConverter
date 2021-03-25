@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    int spinnerPosition = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,13 +26,29 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
-        System.out.println(text);
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_LONG).show();
+        System.out.println(position);
+        spinnerPosition = position;
+        System.out.println("New spinner position is " + spinnerPosition);
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    //Methods for button onClick - Unit Conversions and Spinner checks.
+    public void lengthConversion(View view){
+//Spinner position must be 0 - MUST BE CHECKED. Display Toast if incorrect.
+//        Code to process user input and display conversions
+    }
+
+    public void temperatureConversion(View view){
+//Spinner position must be 1 - MUST BE CHECKED. Display Toast if incorrect.
+//        Code to process user input and display conversions
+    }
+
+    public void weightConversion(View view){
+//Spinner position must be 2 - MUST BE CHECKED. Display Toast if incorrect.
+//        Code to process user input and display conversions
     }
 }

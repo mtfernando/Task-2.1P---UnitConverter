@@ -2,6 +2,7 @@
     <string name="app_name">Unit Converter</string>
 
     <string-array name="spinnerLabels">
+<!--        Spinner Positions - 0, 1, 2-->
         <item>Metre</item>
         <item>Celsius</item>
         <item>Kilograms</item>
