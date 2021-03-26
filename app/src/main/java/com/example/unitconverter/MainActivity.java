@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     //Declaring global variables
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     TextView userInput, placeholder1, placeholder2, placeholder3, output1, output2, output3;
     ImageButton measureButton, temperatureButton, weightButton;
     int spinnerPosition = -1;
+    //Number format to be used in viewing results
+    NumberFormat nf = new DecimalFormat(",###.##");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,13 +95,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 double inches = inputValue*3.28084*12;
 
                 //Output to view
-                output1.setText(String.format("%.2f", cm));
+                output1.setText(nf.format(cm));
                 placeholder1.setText("Centimetre");
 
-                output2.setText(String.format("%.2f", ft));
+                output2.setText(nf.format(ft));
                 placeholder2.setText("Foot");
 
-                output3.setText(String.format("%.2f",inches));
+                output3.setText(nf.format(inches));
                 placeholder3.setText("Inch");
             }
         }
@@ -126,10 +131,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 double fahrenheit = (inputValue*9/5)+32;
 
                 //Output to view
-                output1.setText(String.format("%.2f", fahrenheit));
+                output1.setText(nf.format(fahrenheit));
                 placeholder1.setText("Fahrenheit");
 
-                output2.setText(String.format("%.2f", kelvin));
+                output2.setText(nf.format(kelvin));
                 placeholder2.setText("Kelvin");
 
                 output3.setText("");
@@ -141,7 +146,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //Spinner position must be 2 - MUST BE CHECKED. Display Toast if incorrect.
         if (spinnerPosition != 2) {
             Toast.makeText(getApplicationContext(), "Error! Incorrect Unit Selection.", Toast.LENGTH_SHORT).show();
-            System.out.println("Toast Now!");
         }
 //        Code to process user input and display conversions
         else {
@@ -163,13 +167,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 double pound = inputValue*2.205;
 
                 //Output to view
-                output1.setText(String.format("%.2f", gram));
+                output1.setText(nf.format(gram));
                 placeholder1.setText("Gram");
 
-                output2.setText(String.format("%.2f", ounce));
+                output2.setText(nf.format(ounce));
                 placeholder2.setText("Ounce(Oz)");
 
-                output3.setText(String.format("%.2f",pound));
+                output3.setText(nf.format(pound));
                 placeholder3.setText("Pound(lb)");
             }
         }
