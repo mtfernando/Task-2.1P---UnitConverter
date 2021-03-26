@@ -131,6 +131,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                 output2.setText(String.format("%.2f", kelvin));
                 placeholder2.setText("Kelvin");
+
+                output3.setText("");
+                placeholder3.setText("");
             }
         }
     }
