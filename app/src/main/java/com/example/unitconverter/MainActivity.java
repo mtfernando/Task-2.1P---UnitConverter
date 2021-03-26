@@ -66,28 +66,39 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     //Methods for button onClick - Unit Conversions and Spinner checks.
     public void lengthConversion(View view){
 //Spinner position must be 0 - MUST BE CHECKED. Display Toast if incorrect.
+        boolean noException = false;
         if(spinnerPosition!=0){
             Toast.makeText(getApplicationContext(), "Error! Incorrect Unit Selection.", Toast.LENGTH_SHORT).show();
         }
 //        Code to process user input and display conversions
         else{ //Output length in cm, ft, and inches.
-            double inputValue = Double.parseDouble(userInput.getText().toString());
-            System.out.println(inputValue);
+            try{
+                double inputValue = Double.parseDouble(userInput.getText().toString());
+                noException = true;
+            }
 
-            //Calculate conversions
-            double cm = inputValue*100;
-            double ft = inputValue*3.28084;
-            double inches = inputValue*3.28084*12;
+            catch(Exception e){
+                Toast.makeText(getApplicationContext(), "Invalid Entry!", Toast.LENGTH_SHORT).show();
+            }
+            if(noException){
+                double inputValue = Double.parseDouble(userInput.getText().toString());
+                System.out.println(inputValue);
 
-            //Output to view
-            output1.setText(String.format("%.2f", cm));
-            placeholder1.setText("Centimetre");
+                //Calculate conversions
+                double cm = inputValue*100;
+                double ft = inputValue*3.28084;
+                double inches = inputValue*3.28084*12;
 
-            output2.setText(String.format("%.2f", ft));
-            placeholder2.setText("Foot");
+                //Output to view
+                output1.setText(String.format("%.2f", cm));
+                placeholder1.setText("Centimetre");
 
-            output3.setText(String.format("%.2f",inches));
-            placeholder3.setText("Inch");
+                output2.setText(String.format("%.2f", ft));
+                placeholder2.setText("Foot");
+
+                output3.setText(String.format("%.2f",inches));
+                placeholder3.setText("Inch");
+            }
         }
     }
 
@@ -98,19 +109,29 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 //        Code to process user input and display conversions
         else {
-            double inputValue = Double.parseDouble(userInput.getText().toString());
-            System.out.println(inputValue);
+            boolean noException = false;
+            try{
+                double inputValue = Double.parseDouble(userInput.getText().toString());
+                noException = true;
+            }
+            catch(Exception e){
+                Toast.makeText(getApplicationContext(), "Invalid Entry!", Toast.LENGTH_SHORT).show();
+            }
+            if(noException){
+                double inputValue = Double.parseDouble(userInput.getText().toString());
+                System.out.println(inputValue);
 
-            //Calculate conversions
-            double kelvin = inputValue + 273.15;
-            double fahrenheit = (inputValue*9/5)+32;
+                //Calculate conversions
+                double kelvin = inputValue + 273.15;
+                double fahrenheit = (inputValue*9/5)+32;
 
-            //Output to view
-            output1.setText(String.format("%.2f", fahrenheit));
-            placeholder1.setText("Fahrenheit");
+                //Output to view
+                output1.setText(String.format("%.2f", fahrenheit));
+                placeholder1.setText("Fahrenheit");
 
-            output2.setText(String.format("%.2f", kelvin));
-            placeholder2.setText("Kelvin");
+                output2.setText(String.format("%.2f", kelvin));
+                placeholder2.setText("Kelvin");
+            }
         }
     }
     public void weightConversion(View view) {
@@ -121,24 +142,33 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 //        Code to process user input and display conversions
         else {
-            double inputValue = Double.parseDouble(userInput.getText().toString());
-            System.out.println(inputValue);
+            boolean noException = false;
+            try{
+                double inputValue = Double.parseDouble(userInput.getText().toString());
+                noException = true;
+            }
+            catch(Exception e){
+                Toast.makeText(getApplicationContext(), "Invalid Entry!", Toast.LENGTH_SHORT).show();
+            }
+            if(noException){
+                double inputValue = Double.parseDouble(userInput.getText().toString());
+                System.out.println(inputValue);
 
-            //Calculate conversions
-            double gram = inputValue*1000;
-            double ounce = inputValue*35.274;
-            double pound = inputValue*2.205;
+                //Calculate conversions
+                double gram = inputValue*1000;
+                double ounce = inputValue*35.274;
+                double pound = inputValue*2.205;
 
-            //Output to view
-            output1.setText(String.format("%.2f", gram));
-            placeholder1.setText("Gram");
+                //Output to view
+                output1.setText(String.format("%.2f", gram));
+                placeholder1.setText("Gram");
 
-            output2.setText(String.format("%.2f", ounce));
-            placeholder2.setText("Ounce(Oz)");
+                output2.setText(String.format("%.2f", ounce));
+                placeholder2.setText("Ounce(Oz)");
 
-            output3.setText(String.format("%.2f",pound));
-            placeholder3.setText("Pound(lb)");
+                output3.setText(String.format("%.2f",pound));
+                placeholder3.setText("Pound(lb)");
+            }
         }
-
     }
 }
